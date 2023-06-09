@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block body %}
+    <div class="container">
+      <h4>Your Balance</h4>
+      <h1 id="balance">{{balance}} INR</h1>
+
+      <div class="inc-exp-container">
+        <div>
+          <h4>Income</h4>
+          <p id="money-plus" class="money plus">
+            <strong>{{income}} INR</strong>
+          </p>
+        </div>
+        <div>
+          <h4>Expense</h4>
+          <p id="money-minus" class="money minus">
+            <strong>{{expense}} INR</strong>
+          </p>
+        </div>
+      </div>
+
+      <h3>History</h3>
+
+      <ul id="list" class="list">
+         {% for trans in transactions %}
+            {% if trans['amount']>=0 %}
+              <li class="plus"> {{trans['description']}} <span>+{{trans['amount']}} INR</span></li>
+            {% else %}
+              <li class="minus"> {{trans['description']}} <span>{{trans['amount']}} INR</span></li>
+            {% endif %}
+          {% endfor %}
+      </ul>
+      <a href="/add"><button type="button" class="btn">Add Transaction</button></a>
+
+    </div>
+{% endblock %}

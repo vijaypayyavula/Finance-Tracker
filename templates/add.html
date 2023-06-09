@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container">
+     <h3>Add new transaction</h3>
+      <form method="post">
+        <label for="floatingDes">Description</label>
+        <input type="text" id="floatingDes" name="description">
+
+        <label for="floatingAmt">
+          Amount <br>
+          (Positive - Income, Negative - Expense)
+        </label>
+        <input type="text" id="floatingAmt" name="amount">
+        <button class="btn">Add transaction</button>
+      </form>
+    </div>
+{% endblock %}
